@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sentiment Analyzer</title>
+</head>
+
+<body style="font-family: Arial; text-align: center; margin-top: 50px;">
+    <h1>Analysis</h1>
+
+    <form method="POST">
+        <input type="text" name="text" placeholder="Enter your sentence" size="50" required>
+        <br><br>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if result %}
+    <h2>Result:</h2>
+    {% if result.error %}
+    <p style="color:red;">{{ result.error }}</p>
+    {% else %}
+    <p><b>Text:</b> {{ result.text }}</p>
+    <p><b>Sentiment:</b> {{ result.sentiment }}</p>
+    <p><b>Score:</b> {{ result.compound_score }}</p>
+    {% endif %} {% endif %}
+</body>
+
+</html>
